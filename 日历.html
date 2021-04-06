@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .rili {
+      width: 100px;
+      height: 30px;
+      line-height: 30px;
+      border: 1px solid #000;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="rili"></div>
+</body>
+
+</html>
+<script>
+  /* 
+    options： {
+      separator： '/', 分隔符
+    }
+  */
+  function Calendar(el, options) {
+    this.el = el;
+    this.options = options;
+    this.showTime = {
+      millisecond: 0,
+      year: 0,
+      month: 0,
+      day: 0,
+      show: ''
+    };
+    this.currentTime = {
+      millisecond: 0,
+      year: 0,
+      month: 0,
+      day: 0,
+      show: ''
+    };
+    this.state = 0; //0隐藏 1显示日子 2显示月份 3显示年份
+    this.create();
+  }
+
+  // 2月有闰年 不放入map中
+  Calendar.prototype.monthToDay = new Map([[1, 31], [3, 31], [4, 31], [5, 31], [6, 31], [7, 31], [8, 31], [9, 31], [10, 31], [11, 31], [12, 31]])
+
+  //初始化日历对象和dom 
+  Calendar.prototype.create = function () {
+    let current = new Date()
+    let { millisecond, year, month, day, show } = this.gainTime(current);
+    this.currentTime = { millisecond, year, month, day, show }
+    this.showTime = { millisecond, year, month, day, show }
+    let fragment = document.createDocumentFragment();
+
+
+  }
+  // 设置dom 日历框中的dom元素
+  Calendar.prototype.setCalendarItem = function(year,month){
+    
+  }
+
+  // 获取时间
+  Calendar.prototype.gainTime = function (date) {
+    if (data === null || date instanceof Date !== true) throw new Error('日期格式或数据错误');
+    let separator = this.options.separator || '-';
+    let millisecond = date.getTime();
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+    return {
+      millisecond,
+      year,
+      month,
+      day,
+      show: `${year}${separator}${month > 10 ? month : '0' + month}${separator}${day > 10 ? day : '0' + day}`
+    }
+  }
+
+
+
+</script>
