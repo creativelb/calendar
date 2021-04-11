@@ -1,0 +1,56 @@
+.calendar{
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    width: 300px;
+    font-size: 0;
+}
+.calendar *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.calendar ul,.calendar li{
+    list-style: none;
+}
+.calendar-date{
+    display: inline-block;
+    width: 50%;
+    border: 1px solid #909399;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 16px;
+}
+.calendar-wrapper{
+    width: 900px;
+    display: flex;
+}
+.calendar-container{
+    /* display: inline-block; */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    align-content: start;
+    width: 300px;
+}
+.calendar-container-item{
+    flex: 1 0 14.2%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 18px;
+    color: #000;
+    border: 1px solid #909399;
+}
+.calendar-container-item-noactive{
+    color: #909399;
+}
+.calendar-container-item-active{
+    color: #409EFF;
+}
+/* 移动动画类 */
+.transition{
+    transition: all 1s ease-out;
+}
